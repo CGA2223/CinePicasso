@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="txtTituloPelicula" prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <AnchorPane layoutX="-8.0" layoutY="-8.0" />
+      <Pane prefHeight="94.8" prefWidth="864.0" style="-fx-background-color: #1B263B;">
+         <children>
+            <ImageView fitHeight="89.0" fitWidth="369.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" text="Inicio" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" text="Buscador" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" text="Agregar" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" text="Usuario" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane layoutY="586.0" prefHeight="33.0" prefWidth="864.0" style="-fx-background-color: #1B263B;">
+         <children>
+            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="829.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/logo.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="316.0" layoutY="5.0" prefHeight="17.0" prefWidth="232.0" text="Aplicación creada por Carlos y Álvaro" textFill="WHITE">
+               <font>
+                  <Font name="Georgia" size="14.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <ImageView fx:id="imagePelicula" fitHeight="260.0" fitWidth="190.0" layoutX="29.0" layoutY="106.0" pickOnBounds="true">
+         <image>
+            <Image url="@../images/paceHolder.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="29.0" layoutY="439.0">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label fx:id="txtTituloPelicula" layoutX="289.0" layoutY="131.0" prefHeight="26.0" prefWidth="84.0" text="Titulo:">
+         <font>
+            <Font name="Georgia Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="161.0" prefHeight="19.0" prefWidth="71.0" text="Duración:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="295.0" layoutY="196.0" prefHeight="17.0" prefWidth="99.0" text="Puntuación:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="254.0" layoutY="225.0" text="Fecha de estreno:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Pane layoutX="309.0" layoutY="249.0" prefHeight="151.0" prefWidth="534.0" style="-fx-background-color: #566E8A;">
+         <children>
+            <Label layoutX="14.0" layoutY="5.0" text="Descriptción:">
+               <font>
+                  <Font name="Georgia" size="16.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="txtDescriptcion" layoutX="16.0" layoutY="24.0" prefHeight="115.0" prefWidth="502.0" style="-fx-background-color: #566E8A;" />
+         </children>
+      </Pane>
+      <Label layoutX="309.0" layoutY="439.0" text="Actores:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="288.0" layoutY="504.0" text="Productora:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="307.0" layoutY="472.0" text="Director:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Label layoutX="311.0" layoutY="404.0" text="Género:">
+         <font>
+            <Font name="Georgia" size="16.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnDarDeAlta" layoutX="316.0" layoutY="540.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Dar de alta" />
+      <Label layoutX="368.0" layoutY="93.0" prefHeight="26.0" prefWidth="298.0" text="Rellena los datos de la ficha">
+         <font>
+            <Font name="Georgia Bold" size="18.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="776.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/estrella%20icono.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="19.0" fitWidth="24.0" layoutX="779.0" layoutY="162.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/icono%20relog.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="24.0" fitWidth="24.0" layoutX="776.0" layoutY="224.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/longitud.png" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtGenero" layoutX="410.0" layoutY="400.0" prefHeight="26.0" prefWidth="438.0" text="Acción, Terror, Romance..." />
+      <TextField fx:id="txtActores" layoutX="411.0" layoutY="436.0" prefHeight="17.0" prefWidth="437.0" />
+      <TextField fx:id="txtDirector" layoutX="411.0" layoutY="469.0" prefHeight="19.0" prefWidth="438.0" />
+      <TextField fx:id="txtProductora" layoutX="411.0" layoutY="501.0" prefHeight="17.0" prefWidth="438.0" />
+      <TextField fx:id="txtDuracion" layoutX="399.0" layoutY="161.0" prefHeight="24.0" prefWidth="360.0" text=" *** minutos" />
+      <TextField fx:id="txtPuntuacion" layoutX="399.0" layoutY="193.0" prefHeight="17.0" prefWidth="360.0" text=" X/10" />
+      <TextField fx:id="txtFechaDeEstreno" layoutX="400.0" layoutY="221.0" prefHeight="26.0" prefWidth="360.0" text=" dd/mm/aaaa" />
+      <TextField fx:id="txtTitulo" layoutX="400.0" layoutY="131.0" prefHeight="26.0" prefWidth="360.0" />
+   </children>
+</AnchorPane>
