@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!--
+    Este archivo XML define la interfaz de usuario para la visualización de detalles de una película en la aplicación.
+    Proporciona información sobre la película, como título, duración, puntuación, descripción, actores, director, productora, etc.
+    Los usuarios pueden ver la información de la película y también pueden subir valoraciones o exportar la información en formato JSON o CSV.
+-->
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
@@ -11,15 +15,20 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="txtTituloPelicula" prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <!-- Contenido de la ventana -->
    <children>
+      <!-- Panel superior -->
       <AnchorPane layoutX="-8.0" layoutY="-8.0" />
+      <!-- Barra de navegación -->
       <Pane prefHeight="94.8" prefWidth="864.0" style="-fx-background-color: #1B263B;">
          <children>
+            <!-- Logo de la aplicación -->
             <ImageView fitHeight="89.0" fitWidth="369.0" layoutX="6.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
+            <!-- Botones de navegación -->
             <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" text="Inicio" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
@@ -42,18 +51,22 @@
             </Label>
          </children>
       </Pane>
+      <!-- Barra inferior -->
       <Pane layoutY="586.0" prefHeight="33.0" prefWidth="864.0" style="-fx-background-color: #1B263B;">
          <children>
+            <!-- Logo izquierdo -->
             <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="7.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
+            <!-- Logo derecho -->
             <ImageView fitHeight="26.0" fitWidth="27.0" layoutX="829.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
+            <!-- Créditos de la aplicación -->
             <Label layoutX="316.0" layoutY="5.0" prefHeight="17.0" prefWidth="232.0" text="Aplicación creada por Carlos y Álvaro" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="14.0" />
@@ -61,12 +74,16 @@
             </Label>
          </children>
       </Pane>
+      <!-- Detalles de la película -->
       <ImageView fx:id="imagePelicula" fitHeight="260.0" fitWidth="190.0" layoutX="29.0" layoutY="106.0" pickOnBounds="true">
+         <!-- Imagen de la película -->
          <image>
             <Image url="@../images/paceHolder.jpg" />
          </image>
       </ImageView>
+      <!-- Botón para subir valoración -->
       <Button fx:id="btnSubirValoración" layoutX="39.0" layoutY="511.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Subir valoración" />
+      <!-- Etiquetas de valoración -->
       <Label layoutX="29.0" layoutY="377.0" text="¿Te ha gustado la película?">
          <font>
             <Font name="Georgia Bold" size="16.0" />
@@ -82,12 +99,15 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
+      <!-- Selector de puntuaciones -->
       <ComboBox fx:id="ComboBoxPuntuaciones" layoutX="29.0" layoutY="436.0" prefHeight="26.0" prefWidth="55.0" />
+      <!-- Título de la película -->
       <Label fx:id="txtTituloPelicula" layoutX="319.0" layoutY="145.0" prefHeight="26.0" prefWidth="71.0" text="Titulo">
          <font>
             <Font name="Georgia Bold" size="22.0" />
          </font>
       </Label>
+      <!-- Detalles adicionales -->
       <Label layoutX="320.0" layoutY="171.0" text="Duración:">
          <font>
             <Font name="Georgia" size="16.0" />
@@ -103,9 +123,10 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
+      <!-- Descripción de la película -->
       <Pane layoutX="309.0" layoutY="249.0" prefHeight="151.0" prefWidth="534.0" style="-fx-background-color: #566E8A;">
          <children>
-            <Label layoutX="14.0" layoutY="5.0" text="Descriptción:">
+            <Label layoutX="14.0" layoutY="5.0" text="Descripción:">
                <font>
                   <Font name="Georgia" size="16.0" />
                </font>
@@ -113,6 +134,7 @@
             <TextArea fx:id="txtAreaDescriptcion" layoutX="16.0" layoutY="24.0" prefHeight="115.0" prefWidth="502.0" style="-fx-background-color: #566E8A;" />
          </children>
       </Pane>
+      <!-- Información adicional -->
       <Label layoutX="320.0" layoutY="426.0" text="Actores:">
          <font>
             <Font name="Georgia" size="16.0" />
@@ -138,8 +160,10 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
+      <!-- Botones de exportación -->
       <Button fx:id="btnJson" layoutX="286.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Exportar Json" />
       <Button fx:id="btnCSV" layoutX="558.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Exportar CSV" />
+      <!-- Etiquetas de información -->
       <Label fx:id="txtDuración" layoutX="401.0" layoutY="172.0" prefHeight="18.0" prefWidth="85.0" text="Texto a Cambiar">
          <font>
             <Font name="Georgia" size="14.0" />
@@ -185,11 +209,13 @@
             <Font name="Georgia Bold" size="14.0" />
          </font>
       </Label>
+      <!-- Fecha de última visualización -->
       <Label fx:id="txtFechaDeUltimaVisualizacion" layoutX="735.0" layoutY="145.0" prefHeight="26.0" prefWidth="99.0" text="Texto a cambiar">
          <font>
             <Font name="Georgia Bold" size="14.0" />
          </font>
       </Label>
+      <!-- Iconos de detalles adicionales -->
       <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="487.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/estrella%20icono.png" />
