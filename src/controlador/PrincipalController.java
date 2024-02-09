@@ -5,6 +5,10 @@ import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
+/**
+ * Esta clase controla la lógica de la vista principal de la aplicación.
+ * Carga imágenes y establece texto en etiquetas correspondientes.
+ */
 public class PrincipalController {
 
     @FXML
@@ -67,13 +71,22 @@ public class PrincipalController {
     @FXML
     private Label label141;
 
+    /**
+     * Inicializa la vista principal de la aplicación.
+     * Carga imágenes y establece texto en etiquetas.
+     */
     public void initialize() {
         cargarImagenes();
         establecerTextoEnEtiquetas();
     }
 
+    /**
+     * Carga imágenes en los ImageView correspondientes.
+     * Las imágenes se cargan desde los recursos de la aplicación.
+     */
     private void cargarImagenes() {
         // Cargar imágenes desde tus recursos o ubicación deseada
+        // Las imágenes se cargan desde el paquete de recursos 'images'
         imagen1.setImage(new Image(getClass().getResourceAsStream("../images/paceHolder.jpg")));
         imagen11.setImage(new Image(getClass().getResourceAsStream("../images/paceHolder.jpg")));
         imagen12.setImage(new Image(getClass().getResourceAsStream("../images/paceHolder.jpg")));
@@ -86,6 +99,10 @@ public class PrincipalController {
         imagen141.setImage(new Image(getClass().getResourceAsStream("../images/paceHolder.jpg")));
     }
 
+    /**
+     * Establece texto en las etiquetas correspondientes.
+     * Este texto puede ser el nombre de la película u otra información relevante.
+     */
     private void establecerTextoEnEtiquetas() {
         // Establecer texto en etiquetas
         label1.setText("Nombre de la película");
