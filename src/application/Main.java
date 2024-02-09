@@ -1,6 +1,7 @@
 package application;
 
 import controlador.LoginController;
+import controlador.PrincipalController;
 import controler.pantallaController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -47,10 +48,10 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) {
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/login.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PantallaPrincipal.fxml"));
             Parent root = loader.load();
             
-            LoginController controlador = loader.getController();
+            PrincipalController controlador = loader.getController();
                         
             Scene scene = new Scene(root);
             stage.initModality(Modality.APPLICATION_MODAL);
