@@ -2,14 +2,27 @@ package models;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Usuarios {
 	
+	@Id
+	@Column
 	private int id;
+	@Column
 	private String nombre;
+	@Column
 	private Date fechaNacimiento;
+	@Column
 	private String genero;
+	@Column
 	private String correo;
+	@Column
 	private String contrasena;
+	@Column
 	private String gusto;
 	
 	public Usuarios(String nombre, Date fechaNacimiento, String genero, String correo, String contrasena,

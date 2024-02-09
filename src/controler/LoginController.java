@@ -1,10 +1,9 @@
-package controlador;
+package controler;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import application.Main;
-import controler.pantallaController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -22,7 +21,6 @@ import models.Usuarios;
 import utiles.ListaUsuario;
 
 public class LoginController {
-
     @FXML
     private Button btnCrearUsuario;
 
@@ -51,11 +49,30 @@ public class LoginController {
     private TextField txtCorreo;
 
     @FXML
+    /**
+     * Metodo que inicia sesión si se introduce un usuario ya creado pero que lanza un error si se introduce uno inexistente
+     */
     void iniciarSesion(ActionEvent event) {
     	Usuarios usuarioAIniciar;
     	usuarioAIniciar = ListaUsuario.getUser(txtCorreo.getText(), txtContrasena.getText());
     	if(usuarioAIniciar != null) {
-    		// iniciar sesion
+    		
+    		Main.ocultarLoggin();
+        	try {
+        		
+    			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PantallaPrincipal.fxml"));
+    			Parent root = loader.load();
+    			
+    			controladorPantallaPrincipal = loader.getController();
+    			stageRegistro = new Stage();
+    			Scene scene = new Scene(root);
+    			stageRegistro.initModality(Modality.APPLICATION_MODAL);
+    			stageRegistro.setScene(scene);
+    			stageRegistro.showAndWait();
+    			// Main.modifyStage();
+        	} catch(Exception e) {
+    			e.printStackTrace();
+    		}
     	} else {
     		// lanzar error
     	    Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -66,11 +83,13 @@ public class LoginController {
     	}
     }
     
+    public PantallaPrincipalController controladorPantallaPrincipal;
     public pantallaController	controlador;
     
     private ArrayList<String> listaClientes = new ArrayList<String>(Arrays.asList("Terror", "SuperHeroes", "Drama", "Comedia"
     		, "Acción", "Ciencia Ficción", " Fantasia", "Musical")); 
     public static Stage stageRegistro;
+    
     public static void volverALoggin() {
     	Main.mostrarLoggin();
     	stageRegistro.hide();
@@ -81,7 +100,7 @@ public class LoginController {
     	Main.ocultarLoggin();
     	try {
     		
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/pantalla.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/CrearUsuario.fxml"));
 			Parent root = loader.load();
 			
 			controlador = loader.getController();
@@ -99,5 +118,6 @@ public class LoginController {
     	
 
     }
+
 
 }

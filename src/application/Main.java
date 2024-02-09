@@ -1,11 +1,15 @@
 package application;
 	
-import controlador.LoginController;
+import java.sql.Date;
+
+import controler.LoginController;
 import controler.pantallaController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import models.Usuarios;
+import utiles.ListaUsuario;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
@@ -48,6 +52,8 @@ public class Main extends Application {
 	
 	
 	public static void main(String[] args) {
+		Usuarios user = new Usuarios("Ej", Date.valueOf("2002-2-2"), "ej", "ej", "ej", "ej");
+		ListaUsuario.addUser(user);
 		launch(args);
 	}
 }

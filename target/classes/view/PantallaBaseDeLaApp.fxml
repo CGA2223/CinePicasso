@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+
+<AnchorPane prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/21">
    <children>
       <AnchorPane layoutX="-8.0" layoutY="-8.0" />
       <Pane prefHeight="94.8" prefWidth="864.0" style="-fx-background-color: #1B263B;">
@@ -19,22 +18,22 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" onMouseClicked="#clickInicio" text="Inicio" textFill="WHITE">
+            <Label layoutX="451.0" layoutY="32.0" text="Inicio" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" text="Buscador" textFill="WHITE">
+            <Label layoutX="645.0" layoutY="32.0" text="Buscador" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" onMouseClicked="#clickAgregar" text="Agregar" textFill="WHITE">
+            <Label layoutX="540.0" layoutY="33.0" text="Agregar" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" onMouseClicked="#clickUsuario" text="Usuario" textFill="WHITE">
+            <Label layoutX="765.0" layoutY="32.0" text="Usuario" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
@@ -60,25 +59,5 @@
             </Label>
          </children>
       </Pane>
-      <TextField fx:id="txtanio" layoutX="533.0" layoutY="163.0" prefHeight="26.0" prefWidth="99.0" />
-      <ChoiceBox fx:id="cboxfiltro" layoutX="663.0" layoutY="163.0" prefHeight="26.0" prefWidth="186.0" />
-      <Label layoutX="533.0" layoutY="110.0" prefHeight="18.0" prefWidth="84.0" text="Filtros">
-         <font>
-            <Font name="Georgia" size="12.0" />
-         </font>
-      </Label>
-      <TextField layoutX="31.0" layoutY="163.0" prefHeight="26.0" prefWidth="374.0" />
-      <Label layoutX="31.0" layoutY="110.0" prefHeight="18.0" prefWidth="84.0" text="Buscador">
-         <font>
-            <Font name="Georgia" size="18.0" />
-         </font>
-      </Label>
-      <ImageView fitHeight="34.0" fitWidth="27.0" layoutX="378.0" layoutY="163.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/lupa.png" />
-         </image>
-      </ImageView>
-      <ImageView fx:id="imagePelicula" fitHeight="251.0" fitWidth="200.0" layoutX="31.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true" />
-      <Label fx:id="lblTituloPelicula" layoutX="31.0" layoutY="515.0" prefHeight="18.0" prefWidth="374.0" />
    </children>
 </AnchorPane>

@@ -3,10 +3,11 @@ package controler;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import controlador.LoginController;
+import controler.LoginController;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
@@ -69,13 +70,34 @@ public class pantallaController {
 
     @FXML
     void anadirUsuarioALaLista(ActionEvent event) {
-    	
-    	if(txtContrasena.getText().equals(txtConfirmarContrasena.getText())) {
-        	Usuarios usuario = ListaUsuario.creaUser(txtNombre.getText(), Date.valueOf(txtFechaDeNacimiento.getText()) , txtGenero.getText(),
-        			txtCorreo.getText(), txtContrasena.getText(), (String) cboxGusto.getValue());
-        	ListaUsuario.addUser(usuario);
-    	} else {
-    		System.out.println("Error: La contraseña no es igual a confirmar contraseña");
+    	try {
+			if(txtContrasena.getText().equals(txtConfirmarContrasena.getText())) {
+		    	Usuarios usuario = ListaUsuario.creaUser(txtNombre.getText(), Date.valueOf(txtFechaDeNacimiento.getText()) , txtGenero.getText(),
+		    			txtCorreo.getText(), txtContrasena.getText(), (String) cboxGusto.getValue());
+		    	ListaUsuario.addUser(usuario);
+			    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+			    alert.setHeaderText(null);
+			    alert.setTitle("Usuario");
+			    alert.setContentText("Usuario Creado Con Exito");
+			    alert.showAndWait();
+			} else {
+				// error en  las contraseñas
+			    Alert alert = new Alert(Alert.AlertType.ERROR);
+			    alert.setHeaderText(null);
+			    alert.setTitle("Error");
+			    alert.setContentText("Error, Las contraseñas no coinciden");
+			    alert.showAndWait();
+		
+			}
+    	} catch(NumberFormatException e){
+    		// error en el formato de la  fecha 
+		    Alert alert = new Alert(Alert.AlertType.ERROR);
+		    alert.setHeaderText(null);
+		    alert.setTitle("Error");
+		    alert.setContentText("Error, Formato de la fecha incorrecto \n"
+		    		+ "Introducir en formato yyyy-mm-dd");
+		    alert.showAndWait();
+    		
     	}
 
     }
