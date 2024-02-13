@@ -1,5 +1,6 @@
 package controler;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -47,6 +48,7 @@ public class LoginController {
 
     @FXML
     private TextField txtCorreo;
+    public PantallaPrincipalController controladorPantallaPrincipal;
 
     @FXML
     /**
@@ -83,7 +85,7 @@ public class LoginController {
     	}
     }
     
-    public PantallaPrincipalController controladorPantallaPrincipal;
+    
     public pantallaController	controlador;
     
     private ArrayList<String> listaClientes = new ArrayList<String>(Arrays.asList("Terror", "SuperHeroes", "Drama", "Comedia"
@@ -118,6 +120,28 @@ public class LoginController {
     	
 
     }
+	public static Stage getStageRegistro() {
+		return stageRegistro;
+	}
+	public  void cambiarEscena(String rutaPantalla, Class controlador) {
+		
+		FXMLLoader loader = new FXMLLoader(getClass().getResource(rutaPantalla));
+		Parent root = null;
+		try {
+			root = loader.load();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+		controlador = loader.getController();
+		stageRegistro = new Stage();
+		Scene scene = new Scene(root);
+		stageRegistro.initModality(Modality.APPLICATION_MODAL);
+		stageRegistro.setScene(scene);
+		stageRegistro.showAndWait();
+		// Main.modifyStage();
+		
+	}
 
 
 }

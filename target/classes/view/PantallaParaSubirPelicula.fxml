@@ -20,22 +20,22 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" text="Inicio" textFill="WHITE">
+            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" onMouseClicked="#btnInicio" text="Inicio" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" text="Buscador" textFill="WHITE">
+            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" onMouseClicked="#btnBuscagor" text="Buscador" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" text="Agregar" textFill="WHITE">
+            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" onMouseClicked="#btnAgregar" text="Agregar" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" text="Usuario" textFill="WHITE">
+            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" onMouseClicked="#btnUsuario" text="Usuario" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>

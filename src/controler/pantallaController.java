@@ -3,7 +3,11 @@ package controler;
 import java.sql.Date;
 import java.util.ArrayList;
 
+import org.hibernate.Session;
+
 import controler.LoginController;
+import dao.HibernateUtiles;
+import dao.UsuariosDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -18,6 +22,8 @@ import models.Usuarios;
 import utiles.ListaUsuario;
 
 public class pantallaController {
+	// private Session sesion = HibernateUtiles.getSession();
+	// private UsuariosDao controlUsuario = new UsuariosDao(sesion);
 
     @FXML
     private Button btnCrearUsuario;
@@ -75,6 +81,7 @@ public class pantallaController {
 		    	Usuarios usuario = ListaUsuario.creaUser(txtNombre.getText(), Date.valueOf(txtFechaDeNacimiento.getText()) , txtGenero.getText(),
 		    			txtCorreo.getText(), txtContrasena.getText(), (String) cboxGusto.getValue());
 		    	ListaUsuario.addUser(usuario);
+		    	// controlUsuario.addUsuario(usuario);
 			    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			    alert.setHeaderText(null);
 			    alert.setTitle("Usuario");
