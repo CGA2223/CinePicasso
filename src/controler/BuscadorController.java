@@ -82,18 +82,18 @@ public class BuscadorController {
 		 }
 
     @FXML
-    void clickAgregar(MouseEvent event) {
-
+    void clickAgregar(MouseEvent event) throws IOException  {
+    	CambiarAAgregar(event);
     }
 
     @FXML
-    void clickInicio(MouseEvent event) {
-
+    void clickInicio(MouseEvent event) throws IOException  {
+    	CambiarAInicio(event);
     }
 
     @FXML
-    void clickUsuario(MouseEvent event) {
-
+    void clickUsuario(MouseEvent event) throws IOException {
+    	CambiarAUsuario(event);
     }
 
 }

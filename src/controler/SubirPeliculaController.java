@@ -108,23 +108,22 @@ public class SubirPeliculaController {
 		 }
 
     @FXML
-    void btnAgregar(MouseEvent event) {
-
+    void btnAgregar(MouseEvent event) throws IOException {
     }
 
     @FXML
-    void btnBuscagor(MouseEvent event) {
-
+    void btnBuscagor(MouseEvent event) throws IOException {
+    	CambiarABuscador(event);
     }
 
     @FXML
-    void btnInicio(MouseEvent event) {
-
+    void btnInicio(MouseEvent event) throws IOException {
+    	CambiarAInicio(event);
     }
 
     @FXML
-    void btnUsuario(MouseEvent event) {
-
+    void btnUsuario(MouseEvent event) throws IOException {
+    	CambiarAUsuario(event);
     }
 
 }
