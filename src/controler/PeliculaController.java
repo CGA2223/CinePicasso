@@ -1,4 +1,5 @@
 package controler;
+
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -6,14 +7,18 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
+import javafx.scene.control.TextArea;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class BuscadorController {
+public class PeliculaController {
+
+    @FXML
+    private ComboBox<?> ComboBoxPuntuaciones;
 
     @FXML
     private Label btnAgregar;
@@ -22,22 +27,55 @@ public class BuscadorController {
     private Label btnBuscador;
 
     @FXML
+    private Button btnCSV;
+
+    @FXML
     private Label btnInicio;
+
+    @FXML
+    private Button btnJson;
+
+    @FXML
+    private Button btnSubirValoración;
 
     @FXML
     private Label btnUsuario;
 
     @FXML
-    private ChoiceBox<?> cboxfiltro;
-
-    @FXML
     private ImageView imagePelicula;
 
     @FXML
-    private Label lblTituloPelicula;
+    private Label txtActores;
 
     @FXML
-    private TextField txtanio;
+    private TextArea txtAreaDescriptcion;
+
+    @FXML
+    private Label txtDirector;
+
+    @FXML
+    private Label txtDuracion;
+
+    @FXML
+    private Label txtDuración;
+
+    @FXML
+    private Label txtFechaDeUltimaVisualizacion;
+
+    @FXML
+    private Label txtGeneroDePelicula;
+
+    @FXML
+    private Label txtProductora;
+
+    @FXML
+    private Label txtPuntuacion;
+
+    @FXML
+    private Label txtTituloPelicula;
+
+    @FXML
+    private Label txtValoracionDeLosUsuarios;
     
 	private String pantallaUsuario = "/view/PantallaUsuario.fxml";
 	private String pantallaPrincipalRuta = "/view/PantallaPrincipal.fxml";
@@ -80,20 +118,5 @@ public class BuscadorController {
 		  stage.setScene(scene);
 		  stage.show();
 		 }
-
-    @FXML
-    void clickAgregar(MouseEvent event) {
-
-    }
-
-    @FXML
-    void clickInicio(MouseEvent event) {
-
-    }
-
-    @FXML
-    void clickUsuario(MouseEvent event) {
-
-    }
 
 }

@@ -8,6 +8,7 @@ import application.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
@@ -18,7 +19,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import models.Usuarios;
+import models.Usuario;
 import utiles.ListaUsuario;
 
 public class LoginController {
@@ -49,32 +50,46 @@ public class LoginController {
     @FXML
     private TextField txtCorreo;
     public PantallaPrincipalController controladorPantallaPrincipal;
+    
+
+	private String registroRuta = "/view/CrearUsuario.fxml";
+	private String PantallaPrincipalruta = "/view/PantallaPrincipal.fxml";
+	private String ruta = "/view/";
+
+	 private Stage stage;
+	 private Scene scene;
+	 private Parent root;
+	
+	 public void CambiarARegistro(ActionEvent event) throws IOException {
+		  root = FXMLLoader.load(getClass().getResource(registroRuta));
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+		 }
+	 public void CambiarAPantallaPrincipal(ActionEvent event) throws IOException {
+		  root = FXMLLoader.load(getClass().getResource(PantallaPrincipalruta));
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+		 }
+		 
+	 
+
 
     @FXML
     /**
      * Metodo que inicia sesión si se introduce un usuario ya creado pero que lanza un error si se introduce uno inexistente
+     * @throws IOException 
      */
-    void iniciarSesion(ActionEvent event) {
-    	Usuarios usuarioAIniciar;
+    void iniciarSesion(ActionEvent event) throws IOException {
+    	Usuario usuarioAIniciar;
     	usuarioAIniciar = ListaUsuario.getUser(txtCorreo.getText(), txtContrasena.getText());
     	if(usuarioAIniciar != null) {
     		
-    		Main.ocultarLoggin();
-        	try {
-        		
-    			FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/PantallaPrincipal.fxml"));
-    			Parent root = loader.load();
-    			
-    			controladorPantallaPrincipal = loader.getController();
-    			stageRegistro = new Stage();
-    			Scene scene = new Scene(root);
-    			stageRegistro.initModality(Modality.APPLICATION_MODAL);
-    			stageRegistro.setScene(scene);
-    			stageRegistro.showAndWait();
-    			// Main.modifyStage();
-        	} catch(Exception e) {
-    			e.printStackTrace();
-    		}
+    		CambiarAPantallaPrincipal(event);
+    		
     	} else {
     		// lanzar error
     	    Alert alert = new Alert(Alert.AlertType.ERROR);
@@ -92,13 +107,11 @@ public class LoginController {
     		, "Acción", "Ciencia Ficción", " Fantasia", "Musical")); 
     public static Stage stageRegistro;
     
-    public static void volverALoggin() {
-    	Main.mostrarLoggin();
-    	stageRegistro.hide();
-    	
-    }
+ 
     @FXML
-    void crearUnNuevoUsuario(ActionEvent event) {
+    void crearUnNuevoUsuario(ActionEvent event) throws IOException {
+    	CambiarARegistro(event);
+    	/*
     	Main.ocultarLoggin();
     	try {
     		
@@ -117,7 +130,7 @@ public class LoginController {
 		} catch(Exception e) {
 			e.printStackTrace();
 		}
-    	
+    	*/
 
     }
 	public static Stage getStageRegistro() {

@@ -16,27 +16,27 @@ public class UsuariosDao {
 		this.session = session;
 	}
 
-	public void addUsuario(Usuarios user) {
+	public void addUsuario(Usuario user) {
         Transaction transaction = session.beginTransaction();
         session.save(user);
         transaction.commit();
     }
 
-    public Usuarios getUsuarioId(int id) {
-        return session.get(Usuarios.class, id);
+    public Usuario getUsuarioId(int id) {
+        return session.get(Usuario.class, id);
     }
 
-    public List<Usuarios> getAllUsuarios() {
-        return session.createQuery("FROM Post").list();
+    public List<Usuario> getAllUsuarios() {
+        return session.createQuery("FROM Usuario").list();
     }
 
-    public void updateUsuario(Usuarios user) {
+    public void updateUsuario(Usuario user) {
         Transaction transaction = session.beginTransaction();
         session.update(user);
         transaction.commit();
     }
 
-    public void deleteUsuario(Usuarios user) {
+    public void deleteUsuario(Usuario user) {
         Transaction transaction = session.beginTransaction();
         session.delete(user);
         transaction.commit();

@@ -1,4 +1,5 @@
 package controler;
+
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -6,14 +7,15 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class BuscadorController {
+public class SubirPeliculaController {
 
     @FXML
     private Label btnAgregar;
@@ -22,22 +24,46 @@ public class BuscadorController {
     private Label btnBuscador;
 
     @FXML
+    private Button btnDarDeAlta;
+
+    @FXML
     private Label btnInicio;
 
     @FXML
     private Label btnUsuario;
 
     @FXML
-    private ChoiceBox<?> cboxfiltro;
-
-    @FXML
     private ImageView imagePelicula;
 
     @FXML
-    private Label lblTituloPelicula;
+    private TextField txtActores;
 
     @FXML
-    private TextField txtanio;
+    private TextArea txtDescriptcion;
+
+    @FXML
+    private TextField txtDirector;
+
+    @FXML
+    private TextField txtDuracion;
+
+    @FXML
+    private TextField txtFechaDeEstreno;
+
+    @FXML
+    private TextField txtGenero;
+
+    @FXML
+    private TextField txtProductora;
+
+    @FXML
+    private TextField txtPuntuacion;
+
+    @FXML
+    private TextField txtTitulo;
+
+    @FXML
+    private Label txtTituloPelicula;
     
 	private String pantallaUsuario = "/view/PantallaUsuario.fxml";
 	private String pantallaPrincipalRuta = "/view/PantallaPrincipal.fxml";
@@ -82,17 +108,22 @@ public class BuscadorController {
 		 }
 
     @FXML
-    void clickAgregar(MouseEvent event) {
+    void btnAgregar(MouseEvent event) {
 
     }
 
     @FXML
-    void clickInicio(MouseEvent event) {
+    void btnBuscagor(MouseEvent event) {
 
     }
 
     @FXML
-    void clickUsuario(MouseEvent event) {
+    void btnInicio(MouseEvent event) {
+
+    }
+
+    @FXML
+    void btnUsuario(MouseEvent event) {
 
     }
 

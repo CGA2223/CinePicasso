@@ -1,5 +1,6 @@
 package models;
 
+import java.io.Serializable;
 import java.sql.Date;
 
 import javax.persistence.Column;
@@ -7,28 +8,30 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
-public class Usuarios {
+@Table(name="Usuario")
+public class Usuario implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column
+	@Column(name="IdUsuario")
 	private int id;
-	@Column
+	@Column(name="Nombre")
 	private String nombre;
-	@Column
+	@Column(name="FechaNacimiento")
 	private Date fechaNacimiento;
-	@Column
+	@Column(name="Genero")
 	private String genero;
-	@Column
+	@Column(name="Correo")
 	private String correo;
-	@Column
+	@Column(name="Contraseña")
 	private String contrasena;
-	@Column
+	@Column(name="Gusto")
 	private String gusto;
 	
-	public Usuarios(String nombre, Date fechaNacimiento, String genero, String correo, String contrasena,
+	public Usuario(String nombre, Date fechaNacimiento, String genero, String correo, String contrasena,
 			String gusto) {
 		super();
 		this.nombre = nombre;

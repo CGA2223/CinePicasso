@@ -3,16 +3,16 @@ package utiles;
 import java.sql.Date;
 import java.util.ArrayList;
 
-import models.Usuarios;
+import models.Usuario;
 
 public class ListaUsuario {
-	public static ArrayList<Usuarios> listaUsuarios = new ArrayList();
+	public static ArrayList<Usuario> listaUsuarios = new ArrayList();
 
-	public static ArrayList<Usuarios> getListaUsuarios() {
+	public static ArrayList<Usuario> getListaUsuarios() {
 		return listaUsuarios;
 	}
 	
-	public static void addUser(Usuarios user) {
+	public static void addUser(Usuario user) {
 		listaUsuarios.add(user);
 	}
 	/**
@@ -26,9 +26,9 @@ public class ListaUsuario {
 	 * @param gusto
 	 * @return
 	 */
-	public static Usuarios creaUser(String nombre, Date fechaNacimiento, String genero, String correo, String contrasena,
+	public static Usuario creaUser(String nombre, Date fechaNacimiento, String genero, String correo, String contrasena,
 			String gusto) {
-		Usuarios user = new Usuarios(  nombre, fechaNacimiento, genero, correo, contrasena, gusto);
+		Usuario user = new Usuario(  nombre, fechaNacimiento, genero, correo, contrasena, gusto);
 		return user;
 	}
 	
@@ -39,7 +39,7 @@ public class ListaUsuario {
 	 * @return
 	 */
 	public static boolean userExist(String correo, String contrasena) {
-		for (Usuarios user : listaUsuarios) {
+		for (Usuario user : listaUsuarios) {
 			if (user.getCorreo().equals(correo) && user.getContrasena().equals(contrasena)) {
 				return true;
 			}
@@ -52,9 +52,9 @@ public class ListaUsuario {
 	 * @param contrasena
 	 * @return
 	 */
-	public static Usuarios getUser(String correo, String contrasena) {
+	public static Usuario getUser(String correo, String contrasena) {
 		if(userExist(correo, contrasena)) {
-			for (Usuarios user : listaUsuarios) {
+			for (Usuario user : listaUsuarios) {
 				if (user.getCorreo().equals(correo) && user.getContrasena().equals(contrasena)) {
 					return user;
 				}

@@ -9,22 +9,22 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Configuration;
 
 public class HibernateUtiles {
-	Session session;
+    private static final SessionFactory sessionFactory = buildSessionFactory();
 	
-	public static Session getSession() {
-        // Create registry
-        StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
-                .configure().configure("/src/main/java/hibernate.cfg.xml") // configures settings from hibernate.cfg.xml
-                .build();
-        // Create MetadataSources
-        MetadataSources sources = new MetadataSources(registry);
-        // Create Metadata
-        Metadata metadata = sources.getMetadataBuilder().build();
-        // Create SessionFactory
-        SessionFactory sessionFactory = metadata.getSessionFactoryBuilder().build();
+	
+    private static SessionFactory buildSessionFactory() {
+        
+            Configuration configuration = new Configuration();
+            configuration.configure("/main/java/hibernate.cfg.xml");
 
-		Session session = sessionFactory.openSession();
-		
-		return session;
-	}
+            StandardServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
+                    .applySettings(configuration.getProperties()).build();
+            return configuration.buildSessionFactory(serviceRegistry);
+     
+        
+    }
+
+    public static SessionFactory getSessionFactory() {
+        return sessionFactory;
+    }
 }

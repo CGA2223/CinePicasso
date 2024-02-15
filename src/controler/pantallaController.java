@@ -1,5 +1,6 @@
 package controler;
 
+import java.io.IOException;
 import java.sql.Date;
 import java.util.ArrayList;
 
@@ -11,6 +12,10 @@ import dao.UsuariosDao;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -18,12 +23,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import models.Usuarios;
+import javafx.stage.Stage;
+import models.Usuario;
 import utiles.ListaUsuario;
 
 public class pantallaController {
-	// private Session sesion = HibernateUtiles.getSession();
-	// private UsuariosDao controlUsuario = new UsuariosDao(sesion);
+	 private Session sesion = HibernateUtiles.getSessionFactory().openSession();
+	 private UsuariosDao controlUsuario = new UsuariosDao(sesion);
 
     @FXML
     private Button btnCrearUsuario;
@@ -73,15 +79,29 @@ public class pantallaController {
 
     @FXML
     private TextField txtNombre;
+    
+	private String logginRuta = "/view/Login.fxml";
+    
+	 private Stage stage;
+	 private Scene scene;
+	 private Parent root;
+    
+	 public void CambiarALoggin(ActionEvent event) throws IOException {
+		  Parent root = FXMLLoader.load(getClass().getResource(logginRuta));
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+		 }
 
     @FXML
     void anadirUsuarioALaLista(ActionEvent event) {
     	try {
 			if(txtContrasena.getText().equals(txtConfirmarContrasena.getText())) {
-		    	Usuarios usuario = ListaUsuario.creaUser(txtNombre.getText(), Date.valueOf(txtFechaDeNacimiento.getText()) , txtGenero.getText(),
+		    	Usuario usuario = ListaUsuario.creaUser(txtNombre.getText(), Date.valueOf(txtFechaDeNacimiento.getText()) , txtGenero.getText(),
 		    			txtCorreo.getText(), txtContrasena.getText(), (String) cboxGusto.getValue());
 		    	ListaUsuario.addUser(usuario);
-		    	// controlUsuario.addUsuario(usuario);
+		    	controlUsuario.addUsuario(usuario);
 			    Alert alert = new Alert(Alert.AlertType.INFORMATION);
 			    alert.setHeaderText(null);
 			    alert.setTitle("Usuario");
@@ -110,8 +130,8 @@ public class pantallaController {
     }
 
     @FXML
-    void volverALoggin(ActionEvent event) {
-    	LoginController.volverALoggin();
+    void volverALoggin(ActionEvent event) throws IOException {
+    	CambiarALoggin(event);
     }
 
 }
