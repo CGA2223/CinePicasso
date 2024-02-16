@@ -138,7 +138,6 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnJson" layoutX="286.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" onAction="#exportarAJson" text="Exportar Json" />
       <Label fx:id="txtDuración" layoutX="401.0" layoutY="172.0" prefHeight="18.0" prefWidth="85.0" text="Texto a Cambiar">
          <font>
             <Font name="Georgia" size="14.0" />

@@ -57,6 +57,22 @@ public class Buscador {
     	
     }
     
+    public String getRespuesta(String tituloPelicula) {
+        Request request = new Request.Builder()
+                .url(url + tituloPelicula)
+                .get()
+                .addHeader("accept", "application/json")
+                .build();
+
+        try {
+            Response response = client.newCall(request).execute();
+            return response.body().string();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    	return null;
+    }
+    
     public static void writeJsonToFile(String jsonString, String filePath) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         Object json = mapper.readValue(jsonString, Object.class);
@@ -96,7 +112,6 @@ public class Buscador {
 
                     // Crear objeto Pelicula
                     Pelicula pelicula = new Pelicula(titulo, descripcion, "", puntuacion, "", fechaEstreno, "", "", "", fechaEstreno, 0, cartel, "");
-                    System.out.println(cartel);
                     lista.add(pelicula);
                 }
             }
@@ -109,5 +124,7 @@ public class Buscador {
     public String CreaUrl(String terminacion) {
     	return BaseImage + terminacion;
     }
+    
+    
     
 }

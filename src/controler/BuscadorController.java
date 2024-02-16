@@ -6,6 +6,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import api.Buscador;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -154,6 +155,13 @@ public class BuscadorController implements Initializable{
     void irAPelicula(MouseEvent event) throws IOException {
     	CambiarAPelicula(event);
     	
+    }
+    
+    @FXML
+    void exportarAJson(ActionEvent event) throws IOException {
+    	Buscador buscador = new Buscador();
+    	String titulo = buscador.Busqueda(txtBusqueda.getText()).getTitulo();
+    	Buscador.writeJsonToFile(buscador.getRespuesta(txtBusqueda.getText()), titulo);
     }
 
 }
