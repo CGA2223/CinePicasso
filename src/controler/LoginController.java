@@ -21,6 +21,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import models.Usuario;
 import utiles.ListaUsuario;
+import utiles.UsuarioIniciado;
 
 public class LoginController {
     @FXML
@@ -87,7 +88,7 @@ public class LoginController {
     	Usuario usuarioAIniciar;
     	usuarioAIniciar = ListaUsuario.getUser(txtCorreo.getText(), txtContrasena.getText());
     	if(usuarioAIniciar != null) {
-    		
+    		UsuarioIniciado.setUsuarioIniciado(usuarioAIniciar);
     		CambiarAPantallaPrincipal(event);
     		
     	} else {
@@ -101,7 +102,7 @@ public class LoginController {
     }
     
     
-    public pantallaController	controlador;
+    public RegistroController	controlador;
     
     private ArrayList<String> listaClientes = new ArrayList<String>(Arrays.asList("Terror", "SuperHeroes", "Drama", "Comedia"
     		, "Acción", "Ciencia Ficción", " Fantasia", "Musical")); 

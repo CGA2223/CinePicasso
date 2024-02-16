@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="494.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.pantallaController">
+<AnchorPane prefHeight="494.0" prefWidth="817.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.RegistroController">
    <children>
       <AnchorPane prefHeight="500.0" prefWidth="825.0" style="-fx-background-color: #E0E1DD;">
          <children>
@@ -25,7 +25,7 @@
                <font>
                   <Font name="Arial" size="12.0" />
                </font></Label>
-            <TextField fx:id="txtNombre" layoutX="34.0" layoutY="158.0" prefHeight="26.0" prefWidth="217.0" />
+            <TextField fx:id="txtNombre" layoutX="34.0" layoutY="158.0" prefHeight="26.0" prefWidth="217.0" promptText="carlos" text="carlos" />
             <Pane layoutY="478.0" prefHeight="34.0" prefWidth="826.0" style="-fx-background-color: #1B263B;">
                <children>
                   <ImageView fx:id="imageDecoracionInferior2" fitHeight="34.0" fitWidth="41.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true">
@@ -45,31 +45,31 @@
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtFechaDeNacimiento" layoutX="34.0" layoutY="204.0" prefHeight="26.0" prefWidth="217.0" text="yyyy-mm-dd" />
+            <TextField fx:id="txtFechaDeNacimiento" layoutX="34.0" layoutY="204.0" prefHeight="26.0" prefWidth="217.0" promptText="yyyy-mm-dd" text="2002-02-02" />
             <Label layoutX="34.0" layoutY="236.0" text="Genero">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtGenero" layoutX="34.0" layoutY="252.0" prefHeight="26.0" prefWidth="217.0" />
+            <TextField fx:id="txtGenero" layoutX="34.0" layoutY="252.0" prefHeight="26.0" prefWidth="217.0" promptText="h" text="h" />
             <Label layoutX="34.0" layoutY="287.0" text="Correo">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtCorreo" layoutX="34.0" layoutY="302.0" prefHeight="26.0" prefWidth="217.0" />
+            <TextField fx:id="txtCorreo" layoutX="34.0" layoutY="302.0" prefHeight="26.0" prefWidth="217.0" promptText="ejemplo" text="ejemplo" />
             <Label layoutX="34.0" layoutY="328.0" text="Contraseña">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtContrasena" layoutX="34.0" layoutY="343.0" prefHeight="26.0" prefWidth="217.0" />
+            <TextField fx:id="txtContrasena" layoutX="34.0" layoutY="343.0" prefHeight="26.0" prefWidth="217.0" promptText="ejemplo" text="ejemplo" />
             <Label layoutX="34.0" layoutY="369.0" text="Confirmar contraseña">
                <font>
                   <Font name="Arial" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="txtConfirmarContrasena" layoutX="34.0" layoutY="384.0" prefHeight="26.0" prefWidth="217.0" />
+            <TextField fx:id="txtConfirmarContrasena" layoutX="34.0" layoutY="384.0" prefHeight="26.0" prefWidth="217.0" promptText="ejemplo" text="ejemplo" />
             <ComboBox fx:id="cboxGusto" layoutX="590.0" layoutY="159.0" prefWidth="150.0" />
             <Button fx:id="btnCrearUsuario" layoutX="300.0" layoutY="343.0" mnemonicParsing="false" onAction="#anadirUsuarioALaLista" prefHeight="26.0" prefWidth="218.0" text="Crear usuario" />
             <Button fx:id="btnVolverALoggin" layoutX="300.0" layoutY="384.0" mnemonicParsing="false" onAction="#volverALoggin" prefHeight="26.0" prefWidth="218.0" text="Volver a loggin">

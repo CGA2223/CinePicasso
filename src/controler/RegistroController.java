@@ -1,8 +1,10 @@
 package controler;
 
 import java.io.IOException;
+import java.net.URL;
 import java.sql.Date;
 import java.util.ArrayList;
+import java.util.ResourceBundle;
 
 import org.hibernate.Session;
 
@@ -10,9 +12,11 @@ import controler.LoginController;
 import dao.HibernateUtiles;
 import dao.UsuariosDao;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -27,7 +31,7 @@ import javafx.stage.Stage;
 import models.Usuario;
 import utiles.ListaUsuario;
 
-public class pantallaController {
+public class RegistroController implements Initializable{
 	 private Session sesion = HibernateUtiles.getSessionFactory().openSession();
 	 private UsuariosDao controlUsuario = new UsuariosDao(sesion);
 
@@ -39,10 +43,16 @@ public class pantallaController {
 
     @FXML
     private ComboBox<String> cboxGusto;
-
-	public void setCboxGusto(ArrayList<String> cboxGusto) {
-		this.cboxGusto.setItems(FXCollections.observableArrayList(cboxGusto));
+    
+    private String[] gustos = {"Terror", "Aventura", "Musical", "Aventura"};    
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		cboxGusto.getItems().addAll(gustos);
+		
 	}
+
+    
+
 
 	@FXML
     private ImageView imageDecoracionInferior2;
@@ -85,8 +95,11 @@ public class pantallaController {
 	 private Stage stage;
 	 private Scene scene;
 	 private Parent root;
-    
-	 public void CambiarALoggin(ActionEvent event) throws IOException {
+	 
+	 
+
+
+	public void CambiarALoggin(ActionEvent event) throws IOException {
 		  Parent root = FXMLLoader.load(getClass().getResource(logginRuta));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
@@ -133,5 +146,9 @@ public class pantallaController {
     void volverALoggin(ActionEvent event) throws IOException {
     	CambiarALoggin(event);
     }
+
+   
+
+
 
 }

@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import controler.ControladorGeneral;
 import controler.LoginController;
-import controler.pantallaController;
+import controler.RegistroController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Modality;

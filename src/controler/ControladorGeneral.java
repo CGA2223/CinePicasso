@@ -2,11 +2,13 @@ package controler;
 
 import java.io.IOException;
 
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ComboBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Modality;
@@ -39,5 +41,7 @@ public class ControladorGeneral {
 		  stage.setScene(scene);
 		  stage.show();
 		 }
+	 
+
 
 }
