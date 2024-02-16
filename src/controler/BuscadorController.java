@@ -20,6 +20,8 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import models.Pelicula;
+import utiles.PeliculaAGuardar;
+import utiles.PeliculaSeleccionada;
 
 public class BuscadorController implements Initializable{
 
@@ -39,7 +41,7 @@ public class BuscadorController implements Initializable{
     private ChoiceBox<?> cboxfiltro;
 
     @FXML
-    private ImageView imagePelicula;
+    private ImageView imagePelicula = null;
 
     @FXML
     private Label lblTituloPelicula;
@@ -54,6 +56,7 @@ public class BuscadorController implements Initializable{
 	private String pantallaPrincipalRuta = "/view/PantallaPrincipal.fxml";
 	private String pantallaBuscadorRuta = "/view/buscador.fxml";
 	private String pantallaAgregarRuta = "/view/PantallaParaSubirPelicula.fxml";
+	private String pantallaPelicula = "/view/PantallaAlSeleccionarPelicula.fxml";
 	private String ruta = "/view/";
 
 	 private Stage stage;
@@ -62,6 +65,14 @@ public class BuscadorController implements Initializable{
 	 
 	 public void CambiarAInicio(MouseEvent event) throws IOException {
 		  root = FXMLLoader.load(getClass().getResource(pantallaPrincipalRuta));
+		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+		  scene = new Scene(root);
+		  stage.setScene(scene);
+		  stage.show();
+		 }
+	 
+	 public void CambiarAPelicula(MouseEvent event) throws IOException {
+		  root = FXMLLoader.load(getClass().getResource(pantallaPelicula));
 		  stage = (Stage)((Node)event.getSource()).getScene().getWindow();
 		  scene = new Scene(root);
 		  stage.setScene(scene);
@@ -136,6 +147,13 @@ public class BuscadorController implements Initializable{
 		inputStream.close();
     	imagePelicula.setImage(image);
     	lblTituloPelicula.setText(peli.getTitulo());
+    	PeliculaSeleccionada.setPelicula(peli);
+    }
+    
+    @FXML
+    void irAPelicula(MouseEvent event) throws IOException {
+    	CambiarAPelicula(event);
+    	
     }
 
 }

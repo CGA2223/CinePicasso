@@ -78,7 +78,7 @@
             <Image url="@../images/lupa.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="imagePelicula" fitHeight="251.0" fitWidth="200.0" layoutX="31.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imagePelicula" fitHeight="251.0" fitWidth="200.0" layoutX="31.0" layoutY="251.0" onMouseClicked="#irAPelicula" pickOnBounds="true" preserveRatio="true" />
       <Label fx:id="lblTituloPelicula" layoutX="31.0" layoutY="515.0" prefHeight="18.0" prefWidth="374.0" />
    </children>
 </AnchorPane>

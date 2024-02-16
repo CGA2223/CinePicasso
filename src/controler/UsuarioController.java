@@ -1,10 +1,13 @@
 package controler;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -14,8 +17,10 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Usuario;
+import utiles.UsuarioIniciado;
 
-public class UsuarioController {
+public class UsuarioController  implements Initializable{
 
     @FXML
     private ChoiceBox<?> CboxGusto;
@@ -120,5 +125,18 @@ public class UsuarioController {
     void clickInicio(MouseEvent event) throws IOException {
     	CambiarAInicio(event);
     }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		Usuario user = UsuarioIniciado.getUsuarioIniciado();
+		txtNombre.setText(user.getNombre());
+		txtFechaDeNacimiento.setText( ( user.getFechaNacimiento().toString()));
+		txtGenero.setText(user.getGenero());
+		txtCorreo.setText(user.getCorreo());
+		txtContraseña.setText(user.getContrasena());
+		
+		
+		
+	}
 
 }

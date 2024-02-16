@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="txtTituloPelicula" prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.PeliculaController">
+<AnchorPane prefHeight="614.4" prefWidth="864.0" style="-fx-background-color: #778DA9;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controler.PeliculaController">
    <children>
       <AnchorPane layoutX="-8.0" layoutY="-8.0" />
       <Pane prefHeight="94.8" prefWidth="864.0" style="-fx-background-color: #1B263B;">
@@ -20,22 +20,22 @@
                   <Image url="@../images/logo.png" />
                </image>
             </ImageView>
-            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" text="Inicio" textFill="WHITE">
+            <Label fx:id="btnInicio" layoutX="451.0" layoutY="32.0" onMouseClicked="#IrAInicio" text="Inicio" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" text="Buscador" textFill="WHITE">
+            <Label fx:id="btnBuscador" layoutX="645.0" layoutY="32.0" onMouseClicked="#IrABuscador" text="Buscador" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" text="Agregar" textFill="WHITE">
+            <Label fx:id="btnAgregar" layoutX="540.0" layoutY="33.0" onMouseClicked="#IrAAgrefar" text="Agregar" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" text="Usuario" textFill="WHITE">
+            <Label fx:id="btnUsuario" layoutX="765.0" layoutY="32.0" onMouseClicked="#IrAUsuario" text="Usuario" textFill="WHITE">
                <font>
                   <Font name="Georgia" size="24.0" />
                </font>
@@ -98,7 +98,7 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <Label layoutX="320.0" layoutY="226.0" text="Duración:">
+      <Label layoutX="320.0" layoutY="226.0" text="Estreno:">
          <font>
             <Font name="Georgia" size="16.0" />
          </font>
@@ -138,8 +138,7 @@
             <Font name="Georgia" size="16.0" />
          </font>
       </Label>
-      <Button fx:id="btnJson" layoutX="286.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Exportar Json" />
-      <Button fx:id="btnCSV" layoutX="558.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" text="Exportar CSV" />
+      <Button fx:id="btnJson" layoutX="286.0" layoutY="538.0" minHeight="37.0" minWidth="169.0" mnemonicParsing="false" onAction="#exportarAJson" text="Exportar Json" />
       <Label fx:id="txtDuración" layoutX="401.0" layoutY="172.0" prefHeight="18.0" prefWidth="85.0" text="Texto a Cambiar">
          <font>
             <Font name="Georgia" size="14.0" />
@@ -178,16 +177,6 @@
       <Label fx:id="txtValoracionDeLosUsuarios" layoutX="515.0" layoutY="511.0" prefHeight="18.0" prefWidth="338.0" text="Texto a Cambiar">
          <font>
             <Font name="Georgia" size="14.0" />
-         </font>
-      </Label>
-      <Label layoutX="510.0" layoutY="145.0" prefHeight="26.0" prefWidth="232.0" text="Fecha de ultima visualización:">
-         <font>
-            <Font name="Georgia Bold" size="14.0" />
-         </font>
-      </Label>
-      <Label fx:id="txtFechaDeUltimaVisualizacion" layoutX="735.0" layoutY="145.0" prefHeight="26.0" prefWidth="99.0" text="Texto a cambiar">
-         <font>
-            <Font name="Georgia Bold" size="14.0" />
          </font>
       </Label>
       <ImageView fitHeight="24.0" fitWidth="27.0" layoutX="487.0" layoutY="169.0" pickOnBounds="true" preserveRatio="true">

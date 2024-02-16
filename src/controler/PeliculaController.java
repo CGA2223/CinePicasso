@@ -1,9 +1,14 @@
 package controler;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import api.Buscador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -11,11 +16,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Pelicula;
+import utiles.PeliculaSeleccionada;
 
-public class PeliculaController {
+public class PeliculaController implements Initializable{
 
     @FXML
     private ComboBox<?> ComboBoxPuntuaciones;
@@ -118,5 +126,47 @@ public class PeliculaController {
 		  stage.setScene(scene);
 		  stage.show();
 		 }
+	 
+	 @FXML
+	    void IrAAgrefar(MouseEvent event) throws IOException {
+		 CambiarAAgregar(event);
+	    }
+
+	    @FXML
+	    void IrABuscador(MouseEvent event) throws IOException {
+	    	CambiarABuscador(event);
+	    }
+
+	    @FXML
+	    void IrAInicio(MouseEvent event) throws IOException {
+	    	CambiarAInicio(event);
+	    }
+
+	    @FXML
+	    void IrAUsuario(MouseEvent event) throws IOException {
+	    	CambiarAUsuario(event);
+	    }
+
+		@Override
+		public void initialize(URL location, ResourceBundle resources) {
+			Pelicula peli = PeliculaSeleccionada.getPelicula();
+			txtTituloPelicula.setText(peli.getTitulo());
+			txtAreaDescriptcion.setText(peli.getDescripcion());
+			txtDuracion.setText(peli.getFechaEstreno().toString());
+	    	Buscador buscador = new Buscador();
+	    	String urlPeli = buscador.CreaUrl(peli.getCartel());
+	    	InputStream inputStream;
+			try {
+				inputStream = new URL(urlPeli).openStream();
+				Image image = new Image(inputStream);
+				inputStream.close();
+		    	imagePelicula.setImage(image);
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			
+		}
 
 }
