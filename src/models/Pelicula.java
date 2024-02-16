@@ -13,6 +13,24 @@ import javax.persistence.Table;
 @Table(name="pelicula")
 public class Pelicula {
 	
+	public Pelicula( String titulo, String descripcion, String duracion, Double puntuacion, String genero,
+			Date fechaEstreno, String director, String actores, String compania, Date fechaVisualizacion,
+			int valoracionUsuario, String cartel, String localizacionPelicula) {
+		super();
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.duracion = duracion;
+		this.puntuacion = puntuacion;
+		this.genero = genero;
+		this.fechaEstreno = fechaEstreno;
+		this.director = director;
+		this.actores = actores;
+		this.compania = compania;
+		FechaVisualizacion = fechaVisualizacion;
+		this.valoracionUsuario = valoracionUsuario;
+		this.cartel = cartel;
+		LocalizacionPelicula = localizacionPelicula;
+	}
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="IdPelicula")

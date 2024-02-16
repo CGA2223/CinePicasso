@@ -1,19 +1,27 @@
 package controler;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
+import api.Buscador;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+import models.Pelicula;
 
-public class BuscadorController {
+public class BuscadorController implements Initializable{
 
     @FXML
     private Label btnAgregar;
@@ -38,6 +46,9 @@ public class BuscadorController {
 
     @FXML
     private TextField txtanio;
+    
+    @FXML
+    private TextField txtBusqueda;
     
 	private String pantallaUsuario = "/view/PantallaUsuario.fxml";
 	private String pantallaPrincipalRuta = "/view/PantallaPrincipal.fxml";
@@ -94,6 +105,37 @@ public class BuscadorController {
     @FXML
     void clickUsuario(MouseEvent event) throws IOException {
     	CambiarAUsuario(event);
+    }
+
+	@Override
+	public void initialize(URL location, ResourceBundle resources) {
+		//imagePelicula
+		/*try {
+			
+			InputStream inputStream = new URL("https://image.tmdb.org/t/p/w500/hSTervHaROcTd8Ir3DPfepN80dL.jpg").openStream();
+			Image image = new Image(inputStream);
+			inputStream.close();
+			imagePelicula.setImage(image);
+			
+		} catch (MalformedURLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}*/
+	}
+	
+    @FXML
+    void buscar(MouseEvent event) throws MalformedURLException, IOException {
+    	Buscador buscador = new Buscador();
+    	Pelicula peli = buscador.Busqueda(txtBusqueda.getText());
+    	String urlPeli = buscador.CreaUrl(peli.getCartel());
+    	InputStream inputStream = new URL(urlPeli).openStream();
+		Image image = new Image(inputStream);
+		inputStream.close();
+    	imagePelicula.setImage(image);
+    	lblTituloPelicula.setText(peli.getTitulo());
     }
 
 }
